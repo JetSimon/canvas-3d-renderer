@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obj Viewer</title>
+</head>
+<body>
+    <div style="display:flex; flex-direction: column; place-items: center;">
+        <canvas style="width:400px; height:400px; outline:solid 1px black;" id="canvas" width="400" height="400"></canvas>
+
+        <input style="margin-top: 8px;" type="file" name="file" id="file">
+
+        <h3>Translation</h3>
+        <div>
+            <input type="number" id="x"/>
+            <input type="number" id="y"/>
+            <input type="number" id="z"/>
+        </div>
+
+        <h3>Rotation</h3>
+        <div>
+            <input type="number" id="rx" value="0" step="5"/>
+            <input type="number" id="ry" value="0" step="5"/>
+            <input type="number" id="rz" value="0" step="5"/>
+        </div>
+
+        <h3>Light</h3>
+        <div style="display:block;">
+            <h4>Position</h4>
+            <input type="number" id="lx" value="1" step="1"/>
+            <input type="number" id="ly" value="10" step="1"/>
+            <input type="number" id="lz" value="-10" step="1"/>
+            <h4>Strength</h4>
+            <input type="number" id="ls" value="250" step="10"/>
+        </div>
+
+        <h3>Options</h3>
+        <div>
+            <button onclick="drawVerts = !drawVerts">Toggle Render Verts</button>
+            <button onclick="drawZBuffer = !drawZBuffer">Toggle Z-Buffer</button>
+            <button onclick="shadingType = SHADE_DEPTH">Depth Shade</button>
+            <button onclick="shadingType = SHADE_DIFFUSE">Diffuse Shade</button>
+            <button onclick="shadingType = SHADE_SPEC">Specular Shade</button>
+            <button onclick="shadingType = SHADE_DIFFUSE_SPEC">Diffuse + Specular Shade</button>
+            <label>Shininess</label>
+            <input type="number" id="shininess" value="16" step="1"/>
+        </div>
+    </div>
+
+    <script src="utils.js"></script>
+    <script src="renderer.js"></script>
+    <script src="parser.js"></script>
+</body>
+</html>
